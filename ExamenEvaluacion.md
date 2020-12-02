@@ -67,3 +67,43 @@ fclose($file);
 
 </html>
 ```
+# Ataque persistente es realizar in incremento de valor o una resta, mediante unos botones, se suma o se resta:
+```powershell
+<?php
+	$numero = isset($_GET['numero'])? $_GET["numero"]: 0;
+	$operacion = isset($_GET['operacion'])? $_GET["operacion"]: "";
+	echo $operacion;
+	if($operacion == "sumar")
+	{
+	$num = (int) $numero + 1;
+	}
+	else
+	{
+	$num = (int) $numero - 1;
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>P001</title>
+</head>
+<body>
+	<div id="pagina">
+		<form action="./personas.php" method="get">
+		<p>
+			<label>Numero</label>   
+			<input type="text" name="numero" value="<?php echo "$num"; ?>" maxlength="5" readonly="readonly" />
+		</p>
+		<p>
+			<input type="submit" name="operacion" value="incrementar"/>
+		</p>
+		<p>
+			<input type="submit" name="operacion" value="reducir"/>
+		</p>
+	</form>
+	</div>
+</body>
+</html>
+```
