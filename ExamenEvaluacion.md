@@ -107,3 +107,44 @@ fclose($file);
 </body>
 </html>
 ```
+# Igual, añadiendo una alerta de VIRUS, nos hace suma y resta, pero nos muestra que es un virus
+```powershell
+<?php
+	$numero = isset($_GET['numero'])? $_GET["numero"]: 0;
+	$operacion = isset($_GET['operacion'])? $_GET["operacion"]: "";
+	echo $operacion;
+	if($operacion == "sumar")
+	{
+		$num = (int) $numero + 1;
+	}
+	else
+	{
+		$num = (int) $numero - 1;
+	}
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>P001</title>
+</head>
+<script>alert("VIRUS EXAMEN")</script>
+<body>
+	<div id="pagina">
+	<form action="./personas.php" method="get">
+		<p>
+			<label>Número</label>   
+			<input type="text" name="numero" value="<?php echo "$num"; ?>" maxlength="5" readonly="readonly" />
+		</p>
+		<p>
+			<input type="submit" name="operacion" value="sumar"/>
+		</p>
+		<p>
+			<input type="submit" name="operacion" value="restar"/>
+		</p>
+	</form>
+	</div>
+</body>
+</html>
+```
