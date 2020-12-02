@@ -67,7 +67,11 @@ fclose($file);
 
 </html>
 ```
-# Ataque persistente es realizar in incremento de valor o una resta, mediante unos botones, se suma o se resta:
+# ALMACENAR DATOS DE GPS EN LA PROPIA BASE DE DATOS CON COLUMNA DE LATITUD Y LONGITUD:
+```powershell
+			EN CREACIÓN DE SCRIPT
+```
+# Ataque persistente es realizar un incremento de valor o una resta, mediante unos botones, se suma o se resta:
 ```powershell
 <?php
 	$numero = isset($_GET['numero'])? $_GET["numero"]: 0;
