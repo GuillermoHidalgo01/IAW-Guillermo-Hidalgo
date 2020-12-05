@@ -69,7 +69,56 @@ fclose($file);
 ```
 # ALMACENAR DATOS DE GPS EN LA PROPIA BASE DE DATOS CON COLUMNA DE LATITUD Y LONGITUD:
 ```powershell
-			EN CREACIÓN DE SCRIPT
+!DOCTYPE html>
+<html>
+
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>P001</title>
+</head>
+
+<body>
+	<?php
+	
+		http://localhost/P001/examen1.php?enviar=almacenar&nombre=-5.43861393040
+	
+		$fopen = fopen("archivo.txt", "r");
+		while (!feof($fp)){
+		$line = fgets($fp);
+		echo $line;
+        }
+       		fclose($fopen);
+
+		$enviar = "";
+		$resultado = "";
+				
+		$nombre = $line;
+		$enviar = htmlspecialchars($_GET['enviar']); 
+		
+		$var = "datos.ini";
+		$base = parse_ini_file($var);		
+		$php = new PDO($base["baseDeDatos"],$base["usuario"],$base["password"]);
+		
+		if($enviar == "almacenar")
+	{
+		$con = $php->prepare("INSERT INTO encabezados VALUES (DEFAULT,:texto);");
+		$con->bindParam(':texto',$linea);
+		$con->execute();
+		?><h1><?php echo "" ?></h1><?php
+
+	}
+		else
+	{
+		$con = $php->prepare("SELECT * from encabezados;");
+		$con->execute();
+		$registro = $con->fetchAll(PDO::FETCH_NUM);	
+		$resultado = $registro[0][1];			
+		?><h1><?php echo "$resultado" ?></h1><?php
+	}
+	?>
+</body>
+
+</html>
 ```
 # Ataque persistente es realizar un incremento de valor o una resta, mediante unos botones, se suma o se resta:
 ```powershell
