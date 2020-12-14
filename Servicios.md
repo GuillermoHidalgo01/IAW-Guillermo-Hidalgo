@@ -1,4 +1,4 @@
-# Ejercicio sobre servicios:
+# Ejercicio sobre servicios
 ## Obtener información sobre servicios:
 ### Ver estado de servicios
 ```powershell
